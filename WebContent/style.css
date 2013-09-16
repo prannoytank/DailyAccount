@@ -10,3 +10,8 @@ header h2{color:black;}
 {
 	background-image: url('img/texture-gif/white.gif');
 }
+
+#footer-content
+{
+	margin-top:10px;
+}

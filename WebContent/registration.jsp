@@ -133,10 +133,14 @@
 		</div>
 	</div>
 	<div class="footer-wrapper large-12 columns">
-		<footer class="large-6 large-centered columns">
+		<footer id="footer-content" class="large-11 large-centered columns">
 		 
-		 <h5>Developed by GIFTED,TON and Wolverine</h5>
-		
+		 <h5 class="left">&copy;Developed by GIFTED,TON and Wolverine</h5>
+		 <ul class="inline-list right">
+		 <li><a href="#"  title="Facebook"><img src="img/webicon-facebook.png" /></a></li>
+		 <li><a href="#"  title="Twitter"><img src="img/webicon-twitter.png" /></a></li>
+		 
+		 </ul> 
 		 </footer>
 	</div>
 
