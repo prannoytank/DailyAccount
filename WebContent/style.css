@@ -1,0 +1,12 @@
+.header-wrapper,.footer-wrapper{ background-image:url('img/texture-gif/light-blue.gif');}
+
+header h2{color:black;}
+
+#registration label {
+	font-weight:bold;
+}
+
+.content-wrapper
+{
+	background-image: url('img/texture-gif/white.gif');
+}
