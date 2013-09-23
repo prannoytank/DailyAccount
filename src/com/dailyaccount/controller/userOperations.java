@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.dailyaccount.beans.user;
+import com.dailyaccount.model.UserActivityModel;
 import com.dailyaccount.util.HibernateUtil;
-import com.dailyaccount.util.user;
 
 /**
  * Servlet implementation class userOperations
@@ -78,12 +79,42 @@ public class userOperations extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String username=request.getParameter("_username");
-		int age=Integer.parseInt(request.getParameter("_age"));
+		
+		String action=request.getParameter("_action");
+		
+		if(action.equalsIgnoreCase("login"))
+		{
+			String nickname=request.getParameter("_nickname");
+			String password=request.getParameter("_password");
+			
+			UserActivityModel u=new UserActivityModel ();
+			boolean result=u.loginCheck(nickname, password);
+			if(result==true)
+			getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+			else
+				getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		}
+		else
+		{
 		
 		
-		user empl = new user(username,age);
+		
+		
+		
+		String username=request.getParameter("_fullname");
+		String nickname=request.getParameter("_nickname");
+		String password=request.getParameter("_password");
+		String address=request.getParameter("_address");
+		String birthdate=request.getParameter("_birthdate");
+		String contact=request.getParameter("_cnumber");
+		String permanent=request.getParameter("_pnumber");
+		String g=request.getParameter("_gender");
+		char gender=g.charAt(0);
+		
+		
+		user empl = new user(username,nickname,password,gender,birthdate,contact,permanent,address);
         empl = save(empl);
+		}
 	}
 
 }
