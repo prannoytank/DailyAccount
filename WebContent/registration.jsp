@@ -152,10 +152,8 @@
 
 		<h5 class="left">&copy;Developed by GIFTED,TON and Wolverine</h5>
 		<ul class="inline-list right">
-			<li><a href="#" title="Facebook"><img
-					src="img/webicon-facebook.png" /></a></li>
-			<li><a href="#" title="Twitter"><img
-					src="img/webicon-twitter.png" /></a></li>
+			<li><a href="#" title="Facebook"><img src="img/webicon-facebook.png" /></a></li>
+			<li><a href="#" title="Twitter"><img src="img/webicon-twitter.png" /></a></li>
 
 		</ul>
 		</footer>

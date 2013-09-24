@@ -1,7 +1,9 @@
 package com.dailyaccount.model;
 
+import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,16 +17,23 @@ public class UserActivityModel {
 		SessionFactory factory = new Configuration().configure()
 				.buildSessionFactory();
 		Session session = factory.openSession();
-		String query = "from user where nickname=? and password=?";
-		Query queryObj = session.createQuery(query);
-		queryObj.setString(0, username);
-		queryObj.setString(1, password);
-		List<user> records = queryObj.list();
-		
-		if (records.size() > 0)
+		String query = "Select password from user where nickname=?";
+		String pwd = (String) session.createSQLQuery(query)
+				.addScalar("password", Hibernate.TEXT)
+				.setParameter(0, username).uniqueResult();
+		if (pwd.equals(password)) {
 			return true;
-		else
+		} else {
 			return false;
+		}
 	}
 
 }
+
+/*
+ * Query queryObj = session.createQuery(query).; queryObj.setString(0,
+ * username); queryObj.setString(1, password); List<user> records =
+ * queryObj.list(); for (Iterator it = records.iterator(); it.hasNext(); ) {
+ * user u= (user) it.next(); String pwd =(String) u.getPassword();
+ */
+
